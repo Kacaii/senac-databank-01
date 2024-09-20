@@ -28,11 +28,11 @@ create table vendas (
 -- Inserindo dados
 
 insert into produtos (nome, categoria, preco, estoque) values
-('leite', 'bebida', 4.50, 30),
-('arroz', 'alimentos', 10.00, 50),
-('feijão', 'alimentos', 8.00, 40),
-('sabão em pó', 'limpeza', 12.00, 25),
-('shampoo', 'higiene', 15.00, 20);
+('iphone 8', 'smartphone', 1200.00, 15),
+('redmi note 9', 'smartphone', 3500.00, 10),
+('fones de ouvido', 'acessorios', 200.00, 25),
+('carregador portatil', 'acessórios', 80.00, 40),
+('monitor', 'perifericos', 900.00, 5);
 
 insert into clientes (nome, email, telefone) values
 ('Maria Silva', 'maria.silva@example.com', '123456789'),
@@ -55,10 +55,15 @@ insert into vendas (id_produto, id_cliente, quantidade, data_venda) values
 
 -- Atualizando dados
 
-update produtos set preco = 5.6 where id_produto = 1;
+update produtos set preco = 5600 where id_produto = 1;
 update clientes set telefone = 123098567 where id_cliente = 1;
 
 -- Removendo dados
 
 delete from produtos where id_produto = 5;
 delete from clientes where id_cliente = 5;
+
+-- Consultando dados
+
+select * from produtos where categoria = 'smartphone';
+select * from vendas where data_venda = '2024-09-01';
