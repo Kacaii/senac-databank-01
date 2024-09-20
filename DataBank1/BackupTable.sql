@@ -1,3 +1,5 @@
+-- This was created using MySQL
+
 CREATE DATABASE AyresDB;
 
 USE AyresDB;

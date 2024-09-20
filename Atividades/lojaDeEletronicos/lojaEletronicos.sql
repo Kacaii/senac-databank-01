@@ -1,3 +1,9 @@
+-- IMPORTANTE: A sintaxe do SQLITE é ligeiramente diferente
+-- da utilizada no MySQL.
+-- Em vez de AUTO_INCREMENT, pode-se utilizar INTEGER
+-- para números que aumentam automaticamente.
+
+
 -- Criando tabelas
 
 create table produtos (
