@@ -67,3 +67,11 @@ delete from clientes where id_cliente = 5;
 
 select * from produtos where categoria = 'smartphone';
 select * from vendas where data_venda = '2024-09-01';
+
+select * from vendas group by quantidade;
+-- Vai ficar faltando o exercicio da receita total
+
+-- Ordenando dados
+
+select * from produtos order by nome asc;
+select * from clientes order by nome desc;
