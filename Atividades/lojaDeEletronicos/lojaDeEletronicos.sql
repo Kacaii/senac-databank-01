@@ -1,6 +1,6 @@
 -- IMPORTANTE: A sintaxe do SQLITE é ligeiramente diferente
 -- da utilizada no MySQL.
--- Em vez de AUTO_INCREMENT, pode-se utilizar INTEGER
+-- Em vez de AUTO_INCREMENT, deve-se utilizar INTEGER
 -- para números que aumentam automaticamente.
 
 
