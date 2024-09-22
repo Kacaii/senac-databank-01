@@ -112,6 +112,8 @@ Order results by a column.
 
 ## Primary Keys
 
+### What are primary keys?
+
 A Primary Key is a field or set of fields in a database table that
 uniquely identifies each record. Its main characteristics are:
 
