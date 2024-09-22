@@ -110,6 +110,16 @@ Order results by a column.
   SELECT * FROM usuarios ORDER BY nome DESC;
 ```
 
+## Primary Keys
+
+A Primary Key is a field or set of fields in a database table that
+uniquely identifies each record. Its main characteristics are:
+
+- **Uniqueness**: Each value in the primary key column is unique.
+- **Not null**: The primary key cannot contain null values.
+- **Efficiency**: The primary key helps optimize data retrieval,
+  as the DBMS automatically creates indexes for it.
+
 ## Transactions
 
 A transaction ensures that multiple operations
