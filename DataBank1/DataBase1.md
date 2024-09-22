@@ -116,9 +116,23 @@ A Primary Key is a field or set of fields in a database table that
 uniquely identifies each record. Its main characteristics are:
 
 - **Uniqueness**: Each value in the primary key column is unique.
+
 - **Not null**: The primary key cannot contain null values.
+
 - **Efficiency**: The primary key helps optimize data retrieval,
   as the DBMS automatically creates indexes for it.
+
+A Primary Key is _essential_ for maintaining data integrity and ensuring
+efficient query and update operations. Its importance includes:
+
+- **Unique identification**: It uniquely identifies each record, which is crucial
+  in many business scenarios (e.g., a customer ID in a customer database).
+
+- **Referential integrity**: It ensures reliable relationships between tables,
+  allowing connected records to maintain referential integrity.
+
+- **Efficiency**: Primary keys are automatically indexed by DBMS,
+  making queries faster and more efficient.
 
 ## Transactions
 
