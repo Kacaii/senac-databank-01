@@ -112,7 +112,7 @@ Order results by a column.
 
 ## Primary Keys
 
-### What are primary keys?
+### Key points about primary keys
 
 A Primary Key is a field or set of fields in a database table that
 uniquely identifies each record. Its main characteristics are:
@@ -123,6 +123,8 @@ uniquely identifies each record. Its main characteristics are:
 
 - **Efficiency**: The primary key helps optimize data retrieval,
   as the DBMS automatically creates indexes for it.
+
+### Why use primary keys?
 
 A Primary Key is _essential_ for maintaining data integrity and ensuring
 efficient query and update operations. Its importance includes:
@@ -135,6 +137,35 @@ efficient query and update operations. Its importance includes:
 
 - **Efficiency**: Primary keys are automatically indexed by DBMS,
   making queries faster and more efficient.
+
+## Foreign Keys
+
+### Key points about foreign keys
+
+A Foreign Key is a field in a table that creates a relationship between that table
+and another by referencing the Primary Key of the other table.
+
+Key points about Foreign Keys include:
+
+- **Referential integrity**: Ensures that the value in the foreign key matches
+  a valid value in the related table's primary key, maintaining data consistency.
+
+- **Relationships**: Defines how tables relate to each other, enabling linked data
+  across multiple tables.
+
+- **Cascading actions**: Foreign keys can be set to cascade updates or deletions,
+  meaning changes in the related table automatically reflect in the referencing table.
+
+### How to use foreign keys
+
+```sql
+
+FOREIGN KEY (currentTableColumn) REFERENCES otherTable (otherTableColumn)
+
+```
+
+> [!IMPORTANT]
+> A `FOREIGN KEY` should always link to a `PRIMARY KEY`.
 
 ## Transactions
 
