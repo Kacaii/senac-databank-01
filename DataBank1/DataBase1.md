@@ -8,7 +8,7 @@
 
 ## Basic SQl Concepts
 
-**1. Database**
+### Database
 
 A **database** is a collection of tables.
 
@@ -16,7 +16,7 @@ A **database** is a collection of tables.
 CREATE DATABASE my_database;
 ```
 
-**2. Table**
+### Table
 
 A **table** stores data in rows and columns.
 
@@ -31,7 +31,7 @@ A **table** stores data in rows and columns.
 | id  | nome | email |
 | --- | ---- | ----- |
 
-**3. Column**
+### Column
 
 A **column** defines what kind of data is stored.
 
@@ -42,7 +42,7 @@ A **column** defines what kind of data is stored.
 | id  | name | email | birth_date |
 | --- | ---- | ----- | ---------- |
 
-**4. Rows**
+### Rows
 
 Rows store actual data.
 
@@ -56,7 +56,7 @@ Rows store actual data.
 
 ## Basic Commands
 
-**1. INSERT**
+### INSERT
 
 Adds new data to a table.
 
@@ -64,7 +64,7 @@ Adds new data to a table.
   INSERT INTO products (name, price) VALUES ('Pen', 1.50);
 ```
 
-**2. SELECT**
+### SELECT
 
 Retrieves data from a table.
 
@@ -72,7 +72,7 @@ Retrieves data from a table.
   SELECT name, email FROM users;
 ```
 
-**3. UPDATE**
+### UPDATE
 
 Modifies existing data.
 
@@ -80,7 +80,7 @@ Modifies existing data.
   UPDATE users SET email = 'new_email@example.com' WHERE id = 1;
 ```
 
-**4. DELETE**
+### DELETE
 
 Removes data from a table.
 
@@ -90,7 +90,7 @@ Removes data from a table.
 
 ## Querying Data
 
-**1. WHERE**
+### WHERE
 
 Filters results based on a condition.
 
@@ -98,7 +98,7 @@ Filters results based on a condition.
   SELECT * FROM usuarios WHERE nome = 'Joao';
 ```
 
-**2. ORDER BY**
+### ORDER BY
 
 Order results by a column.
 
@@ -112,7 +112,8 @@ Order results by a column.
 
 ## Transactions
 
-A transaction ensures that multiple operations are completed together or nothing at all.
+A transaction ensures that multiple operations
+are completed together or nothing at all.
 
 - **BEGIN TRANSACTION**: Start a transaction.
 
@@ -136,10 +137,15 @@ COMMIT;
 
 ### Key concepts in transactions
 
-1. **Atomicity**: The transaction is an all-or-nothing operation. If any part of the transaction fails, the entire transaction fails and is rolled back to its original state.
+1. **Atomicity**: The transaction is an all-or-nothing operation.
+   If any part of the transaction fails, the entire transaction fails
+   and is rolled back to its original state.
 
-2. **Consistency**: Transactions must bring the database from one valid state to another, maintaining the integrity of the data.
+2. **Consistency**: Transactions must bring the database from one valid state
+   to another, maintaining the integrity of the data.
 
-3. **Isolation**: Transactions are isolated from each other. Changes made by one transaction are not visible to others until the transaction is completed.
+3. **Isolation**: Transactions are isolated from each other. Changes made by
+   one transaction are not visible to others until the transaction is completed.
 
-4. **Durability**: Once a transaction is committed, the changes are permanent, even if there is a system failure afterward.
+4. **Durability**: Once a transaction is committed, the changes are permanent,
+   even if there is a system failure afterward.
