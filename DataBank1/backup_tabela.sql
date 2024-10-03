@@ -1,3 +1,5 @@
+-- Criando Tabelas
+
 CREATE TABLE departamentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255),
@@ -13,6 +15,8 @@ CREATE TABLE empregados (
     id_departamento INT,
     FOREIGN KEY (id_departamento) REFERENCES departamentos (id)
 );
+
+-- Inserindo Dados
 
 INSERT INTO departamentos (nome, bloco)
 VALUES
@@ -33,6 +37,8 @@ VALUES
 ('Roberta Miranda', 3065, 357, '2001-01-07', 1),
 ('Cáscio Silva', 5365, 147, '1999-08-01', 4),
 ('Maria Silva', 7824, 357, '2010-07-10', 1);
+
+-- Transacoes
 
 START TRANSACTION;
 
