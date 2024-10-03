@@ -1,4 +1,4 @@
--- IMPORTANTE: A sintaxe do SQLITE é ligeiramente diferente
+-- IMPORTANTE: A sINTaxe do SQLITE é ligeiramente diferente
 -- da utilizada no MySQL.
 -- Em vez de AUTO_INCREMENT, deve-se utilizar INTEGER
 -- para números que aumentam automaticamente.
@@ -6,48 +6,48 @@
 
 -- Criando tabelas
 
-create table produtos (
-    id_produto integer primary key,
-    nome varchar(255),
-    categoria varchar(255),
-    preco decimal,
-    estoque int
+CREATE TABLE produtos (
+    id_produto INTEGER PRIMARY KEY,
+    nome VARCHAR(255),
+    categoria VARCHAR(255),
+    preco DECIMAL,
+    estoque INT
 );
 
-create table clientes (
-    id_cliente integer primary key,
-    nome varchar(255),
-    email varchar(255),
-    telefone varchar(255)
+CREATE TABLE clientes (
+    id_cliente INTEGER PRIMARY KEY,
+    nome VARCHAR(255),
+    email VARCHAR(255),
+    telefone VARCHAR(255)
 );
 
-create table vendas (
-    id_venda integer primary key,
-    id_produto int,
-    id_cliente int,
-    quantidade int,
-    data_venda date,
-    foreign key (id_produto) references produtos (id_produto),
-    foreign key (id_cliente) references clientes (id_cliente)
+CREATE TABLE vendas (
+    id_venda INTEGER PRIMARY KEY,
+    id_produto INT,
+    id_cliente INT,
+    quantidade INT,
+    data_venda DATE,
+    FOREIGN KEY (id_produto) REFERENCES produtos (id_produto),
+    FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente)
 );
 
 -- Inserindo dados
 
-insert into produtos (nome, categoria, preco, estoque) values
+INSERT INTO produtos (nome, categoria, preco, estoque) VALUES
 ('iphone 8', 'smartphone', 1200.00, 15),
 ('redmi note 9', 'smartphone', 3500.00, 10),
 ('fones de ouvido', 'acessorios', 200.00, 25),
 ('carregador portatil', 'acessórios', 80.00, 40),
 ('monitor', 'perifericos', 900.00, 5);
 
-insert into clientes (nome, email, telefone) values
+INSERT INTO clientes (nome, email, telefone) VALUES
 ('Maria Silva', 'maria.silva@example.com', '123456789'),
 ('João Santos', 'joao.santos@example.com', '987654321'),
 ('Ana Costa', 'ana.costa@example.com', '456123789'),
 ('Carlos Souza', 'carlos.souza@example.com', '321654987'),
 ('Beatriz Lima', 'beatriz.lima@example.com', '654987321');
 
-insert into vendas (id_produto, id_cliente, quantidade, data_venda) values
+INSERT INTO vendas (id_produto, id_cliente, quantidade, data_venda) VALUES
 (1, 1, 2, '2024-09-01'),
 (2, 2, 1, '2024-09-02'),
 (3, 3, 3, '2024-09-03'),
@@ -61,23 +61,22 @@ insert into vendas (id_produto, id_cliente, quantidade, data_venda) values
 
 -- Atualizando dados
 
-update produtos set preco = 5600 where id_produto = 1;
-update clientes set telefone = 123098567 where id_cliente = 1;
+UPDATE produtos SET preco = 5600 WHERE id_produto = 1;
+UPDATE clientes SET telefone = 123098567 WHERE id_cliente = 1;
 
 -- Removendo dados
 
-delete from produtos where id_produto = 5;
-delete from clientes where id_cliente = 5;
+DELETE FROM produtos WHERE id_produto = 5;
+DELETE FROM clientes WHERE id_cliente = 5;
 
 -- Consultando dados
 
-select * from produtos where categoria = 'smartphone';
-select * from vendas where data_venda = '2024-09-01';
-
-select * from vendas group by quantidade;
+SELECT * FROM produtos WHERE categoria = 'smartphone';
+SELECT * FROM vendas WHERE data_venda = '2024-09-01';
+SELECT * FROM vendas GROUP BY quantidade;
 -- Vai ficar faltando o exercicio da receita total
 
 -- Ordenando dados
 
-select * from produtos order by nome asc;
-select * from clientes order by nome desc;
+SELECT * FROM produtos ORDER BY nome ASC;
+SELECT * FROM clientes ORDER BY nome DESC;
