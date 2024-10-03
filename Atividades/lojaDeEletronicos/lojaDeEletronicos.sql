@@ -71,7 +71,24 @@ DELETE FROM clientes WHERE id_cliente = 5;
 
 -- Consultando dados
 
-SELECT * FROM produtos WHERE categoria = 'smartphone';
+SELECT (id_produto, nome, preco, estoque)
+FROM produtos
+WHERE categoria = 'smartphone';
+
+SELECT * FROM vendas WHERE data_venda = '2024-09-01';
+
+SELECT * FROM vendas GROUP BY quantidade;
+
+SELECT
+    SUM(vendas.quantidade * produtos.preco)
+        AS receita_total
+FROM vendas
+JOIN produtos ON vendas.id_produto = produtos.id_produto;
+
+-- Ordenando dados
+
+SELECT * FROM produtos ORDER BY nome ASC;
+SELECT * FROM clientes ORDER BY nome DESC;
 SELECT * FROM vendas WHERE data_venda = '2024-09-01';
 SELECT * FROM vendas GROUP BY quantidade;
 -- Vai ficar faltando o exercicio da receita total
