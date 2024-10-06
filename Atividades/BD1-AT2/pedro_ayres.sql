@@ -1,3 +1,5 @@
+-- Adicionei um GIF no repositorio mostrando como interagir com a database
+
 CREATE TABLE vendas (
     id_venda INTEGER, -- `INTEGER PRIMARY KEY` == ` INT AUTO_INCREMENT`
     produto TEXT, -- Usando `TEXT` ao inves de `VARCHAR(255)`
@@ -63,4 +65,3 @@ SELECT MAX(preco_unidade) AS maior_preco FROM vendas;
 -- #4A
 
 SELECT MAX(preco_unidade * quantidade) AS maior_venda FROM vendas;
-
