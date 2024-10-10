@@ -28,7 +28,8 @@ INSERT INTO vendas (
 ('Sabonete', 'Higiene', 6, 3.00, '2024-09-04'),
 ('Pão', 'Alimentos', 15, 1.50, '2024-09-05'),
 ('Shampoo', 'Higiene', 1, 15.00, '2024-09-05'),
-('Creme Dental', 'Higiene', 3, 8.00, '2024-09-06');
+('Creme Dental', 'Higiene', 3, 8.00, '2024-09-06'),
+('Celular', 'Eletronicos', 23, 235.00, '2024-10-10');
 
 -- #1A
 
@@ -65,3 +66,10 @@ SELECT MAX(preco_unidade) AS maior_preco FROM vendas;
 -- #4A
 
 SELECT MAX(preco_unidade * quantidade) AS maior_venda FROM vendas;
+
+-- Atividade 10/10/2024
+-- TODO: Terminar
+--
+SELECT COUNT(id_venda)
+FROM vendas
+WHERE categoria IN ('Alimentos', 'Eletronicos') GROUP BY categoria;
