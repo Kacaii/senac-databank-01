@@ -1,3 +1,5 @@
+-- A Atividade do dia 2024-10-10 começa na linha 78  
+
 CREATE TABLE vendas (
     id_venda INTEGER, -- `INTEGER PRIMARY KEY` == ` INT AUTO_INCREMENT`
     produto TEXT,
