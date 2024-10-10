@@ -1,8 +1,6 @@
--- Adicionei um GIF no repositorio mostrando como interagir com a database
-
 CREATE TABLE vendas (
     id_venda INTEGER, -- `INTEGER PRIMARY KEY` == ` INT AUTO_INCREMENT`
-    produto TEXT, -- Usando `TEXT` ao inves de `VARCHAR(255)`
+    produto TEXT,
     categoria TEXT,
     quantidade INT,
     preco_unidade DECIMAL,
@@ -29,7 +27,9 @@ INSERT INTO vendas (
 ('Pão', 'Alimentos', 15, 1.50, '2024-09-05'),
 ('Shampoo', 'Higiene', 1, 15.00, '2024-09-05'),
 ('Creme Dental', 'Higiene', 3, 8.00, '2024-09-06'),
-('Celular', 'Eletronicos', 23, 235.00, '2024-10-10');
+('Celular', 'Eletronicos', 4, 230.00, '2024-10-10'), -- Adicionado recentemente
+('Camisa_da_Nike', 'Roupa', 5, 50.00, '2024-10-10'); -- Adicionado recentemente
+
 
 -- #1A
 
@@ -67,9 +67,60 @@ SELECT MAX(preco_unidade) AS maior_preco FROM vendas;
 
 SELECT MAX(preco_unidade * quantidade) AS maior_venda FROM vendas;
 
--- Atividade 10/10/2024
--- TODO: Terminar
---
-SELECT COUNT(id_venda)
+-- #4B
+
+SELECT
+    ROUND(AVG(preco_unidade))
+        AS media_de_preco
 FROM vendas
-WHERE categoria IN ('Alimentos', 'Eletronicos') GROUP BY categoria;
+WHERE categoria = 'Higiene';
+
+-- Atividade 10/10/2024
+
+-- 'Quantas vendas foram realizadas na categoria "Alimentos" e "Eletrônicos"?'
+--
+SELECT
+    COUNT(CASE
+        WHEN categoria = 'Alimentos'
+            THEN id_venda
+    END)
+        AS alimentos,
+    COUNT(
+        CASE
+            WHEN categoria = 'Eletronicos'
+                THEN id_venda
+        END
+    ) AS eletronicos
+FROM vendas;
+
+-- Quantas vendas foram realizadas no total?
+--
+SELECT COUNT(id_venda) AS total_vendas FROM vendas LIMIT 200;
+
+-- Qual foi o menor preço por unidade vendido?
+--
+SELECT MIN(preco_unidade) AS menor_preco FROM vendas LIMIT 200;
+
+-- Qual foi o maior preço por unidade vendido
+--
+SELECT MAX(preco_unidade) AS maior_preco FROM vendas LIMIT 200;
+
+-- Qual foi o maior valor total de uma venda?
+--
+SELECT MAX(quantidade * preco_unidade) AS maior_valor_total FROM vendas;
+
+-- Qual é a média de valor das vendas realizadas
+-- na categoria "Higiene" e "Roupa"?
+--
+SELECT
+    AVG(CASE
+        WHEN categoria = 'Higiene'
+            THEN quantidade * preco_unidade
+    END)
+        AS media_higiene,
+    AVG(CASE
+        WHEN categoria = 'Roupa'
+            THEN quantidade * preco_unidade
+    END)
+        AS media_roupa
+FROM vendas;
