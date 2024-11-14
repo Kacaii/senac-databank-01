@@ -18,17 +18,38 @@ CREATE TABLE biblioteca (
 -- == TABELAS NORMALIZADAS ==
 -- ==========================
 
-CREATE TABLE biblioteca ();
-
-CREATE TABLE livros (
-    id_livro INTERGER,
-    PRIMARY KEY (id_livro)
+CREATE TABLE categorias (
+    id INTERGER,
+    PRIMARY KEY (id)
 );
 
-CREATE TABLE livro_autor (); -- Tabela associativa
+-- Tabela associativa
+CREATE TABLE livro_autor (
+    id_livro INTERGER,
+    id_autor INTERGER,
+    FOREIGN KEY (id_livro) REFERENCES livros (id),
+    FOREIGN KEY (id_autor) REFERENCES autores (id)
+);
 
 CREATE TABLE alunos ();
 
-CREATE TABLE editora ();
+CREATE TABLE editoras ();
+
+CREATE TABLE autores (
+    id_autor INTERGER,
+    nome VARCHAR(100),
+    editora VARCHAR(100),
+    FOREIGN KEY (editora) REFERENCES editoras (id)
+);
 
 CREATE TABLE emprestimos ();
+
+CREATE TABLE livros (
+    id_livro INTERGER,
+    PRIMARY KEY (id_livro),
+    titulo VARCHAR(100),
+    autor VARCHAR(100),
+    FOREIGN KEY (autor) REFERENCES autores (id),
+    editora VARCHAR(100),
+    FOREIGN KEY (editora) REFERENCES editoras (id)
+);
