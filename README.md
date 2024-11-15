@@ -31,9 +31,7 @@ In this repository, you will find:
 Senac-Databank/
 │
 ├── Databank1/               # Main directory for Databank1
-│   ├── BD1-AT1/             # Directory for Assignment 1
-│   ├── BD2-AT2/             # Directory for Assignment 2
-│   └── database.db          # Database file
+│   └── Atividades/          # Databank1 Assignments
 │
 └── README.md                # This README file
 ```
