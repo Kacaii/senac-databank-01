@@ -75,25 +75,34 @@ SELECT (id_produto, nome, preco, estoque)
 FROM produtos
 WHERE categoria = 'smartphone';
 
-SELECT * FROM vendas WHERE data_venda = '2024-09-01';
+SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
+FROM vendas WHERE data_venda = '2024-09-01';
 
-SELECT * FROM vendas GROUP BY quantidade;
+SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
+FROM vendas GROUP BY quantidade;
 
-SELECT
-    SUM(vendas.quantidade * produtos.preco)
-        AS receita_total
-FROM vendas
-JOIN produtos ON vendas.id_produto = produtos.id_produto;
-
--- Ordenando dados
-
-SELECT * FROM produtos ORDER BY nome ASC;
-SELECT * FROM clientes ORDER BY nome DESC;
-SELECT * FROM vendas WHERE data_venda = '2024-09-01';
-SELECT * FROM vendas GROUP BY quantidade;
--- Vai ficar faltando o exercicio da receita total
+SELECT SUM(v.quantidade * p.preco) AS receita_total
+FROM vendas AS v
+INNER JOIN produtos AS p ON v.id_produto = p.id_produto;
 
 -- Ordenando dados
 
-SELECT * FROM produtos ORDER BY nome ASC;
-SELECT * FROM clientes ORDER BY nome DESC;
+SELECT (id_produto, nome, preco, estoque)
+FROM produtos ORDER BY nome ASC;
+
+SELECT (id_cliente, nome, email, telefone)
+FROM clientes ORDER BY nome DESC;
+
+SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
+FROM vendas WHERE data_venda = '2024-09-01';
+
+SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
+FROM vendas GROUP BY quantidade;
+
+-- Ordenando dados
+
+SELECT (id_produto, nome, preco, estoque)
+FROM produtos ORDER BY nome ASC;
+
+SELECT (id_cliente, nome, email, telefone)
+FROM clientes ORDER BY nome DESC;

@@ -1,24 +1,19 @@
--- sqlfluff: disable L003
-
--- A Atividade do dia 2024-10-10 começa na linha 78  
-create table vendas (
-    id_venda integer, -- `integer primary key` == ` int auto_increment`
-    produto text,
-    categoria text,
-    quantidade int,
-    preco_unidade decimal,
-    data_venda date,
-    primary key (id_venda)
+CREATE TABLE IF NOT EXISTS vendas (
+    id_venda INTEGER PRIMARY KEY,
+    produto TEXT,
+    categoria TEXT,
+    quantidade INT,
+    preco_unidade DECIMAL,
+    data_venda DATE
 );
 
--- drop table vendas;
-insert into vendas (
+INSERT INTO vendas (
     produto,
     categoria,
     quantidade,
     preco_unidade,
     data_venda
-) values
+) VALUES
 ('Arroz', 'Alimentos', 5, 10.00, '2024-09-01'),
 ('Feijão', 'Alimentos', 3, 7.50, '2024-02-02'),
 ('Sabão', 'Limpeza', 2, 12.00, '2024-09-02'),
@@ -32,96 +27,89 @@ insert into vendas (
 ('Celular', 'Eletronicos', 4, 230.00, '2024-10-10'), -- Adicionado recentemente
 ('Camisa_da_Nike', 'Roupa', 5, 50.00, '2024-10-10');  -- Adicionado recentemente
 
-
 -- #1A
-select count(id_venda) as vendas_de_alimentos
-from vendas
-where categoria = 'Alimentos'
-;
-
+SELECT COUNT(id_venda) AS vendas_de_alimentos
+FROM vendas
+WHERE categoria = 'Alimentos'
+LIMIT 200;
 
 -- #1B
-select count(id_venda) as vendas_totais
-from vendas
-;
+SELECT COUNT(id_venda) AS vendas_totais
+FROM vendas
+LIMIT 200;
 
 -- #2A
-select round(avg(preco_unidade / quantidade), 2) as preco_medio_por_unidade
-from vendas
-;
+SELECT ROUND(AVG(preco_unidade / quantidade), 2) AS preco_medio_por_unidade
+FROM vendas
+LIMIT 200;
 
 -- 2B
-select round(avg(quantidade)) as quantidade_media_por_venda
-from vendas
-;
+SELECT ROUND(AVG(quantidade)) AS quantidade_media_por_venda
+FROM vendas
+LIMIT 200;
 
 -- #3A
-select min(preco_unidade) as menor_preco
-from vendas
-;
+SELECT MIN(preco_unidade) AS menor_preco
+FROM vendas
+LIMIT 200;
 
 -- #3B
-select max(preco_unidade) as maior_preco
-from vendas
-;
+SELECT MAX(preco_unidade) AS maior_preco
+FROM vendas
+LIMIT 200;
 
 -- #4A
-select max(preco_unidade * quantidade) as maior_venda
-from vendas
-;
+SELECT MAX(preco_unidade * quantidade) AS maior_venda
+FROM vendas
+LIMIT 200;
 
 -- #4B
-select round(avg(preco_unidade)) as media_de_preco
-from vendas
-where categoria = 'Higiene'
-;
+SELECT ROUND(AVG(preco_unidade)) AS media_de_preco
+FROM vendas
+WHERE categoria = 'Higiene'
+LIMIT 200;
 
 -- Atividade 10/10/2024
 -- 'Quantas vendas foram realizadas na categoria "Alimentos" e "Eletrônicos"?'
---
-select
-    count(case when categoria = 'Alimentos' then id_venda end) as alimentos,
-    count(case when categoria = 'Eletronicos' then id_venda end) as eletronicos
-from vendas
-;
+
+SELECT
+    COUNT(CASE WHEN categoria = 'Alimentos' THEN id_venda END) AS alimentos,
+    COUNT(CASE WHEN categoria = 'Eletronicos' THEN id_venda END) AS eletronicos
+FROM vendas
+LIMIT 200;
 
 -- Quantas vendas foram realizadas no total?
---
-select count(id_venda) as total_vendas
-from vendas
-limit 200
-;
+
+SELECT COUNT(id_venda) AS total_vendas
+FROM vendas
+LIMIT 200;
 
 
 -- Qual foi o menor preço por unidade vendido?
---
-select min(preco_unidade) as menor_preco
-from vendas
-limit 200
-;
+
+SELECT MIN(preco_unidade) AS menor_preco
+FROM vendas
+LIMIT 200;
 
 -- Qual foi o maior preço por unidade vendido
---
-select max(preco_unidade) as maior_preco
-from vendas
-limit 200
-;
+
+SELECT MAX(preco_unidade) AS maior_preco
+FROM vendas
+LIMIT 200;
 
 -- Qual foi o maior valor total de uma venda?
---
-select max(quantidade * preco_unidade) as maior_valor_total
-from vendas
-;
+
+SELECT MAX(quantidade * preco_unidade) AS maior_valor_total
+FROM vendas
+LIMIT 200;
 
 -- Qual é a média de valor das vendas realizadas
 -- na categoria "Higiene" e "Roupa"?
---
-select
-    avg(
-        case when categoria = 'Higiene' then quantidade * preco_unidade end
-    ) as media_higiene,
-    avg(
-        case when categoria = 'Roupa' then quantidade * preco_unidade end
-    ) as media_roupa
-from vendas
-;
+
+SELECT
+    AVG(CASE WHEN categoria = 'Higiene' THEN quantidade * preco_unidade END
+    ) AS media_higiene,
+    AVG(CASE WHEN categoria = 'Roupa' THEN quantidade * preco_unidade END
+    ) AS media_roupa
+FROM vendas
+LIMIT 200;
