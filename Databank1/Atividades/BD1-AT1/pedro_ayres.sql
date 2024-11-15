@@ -1,12 +1,14 @@
 -- IMPORTANTE: A sintaxe do SQLITE é ligeiramente diferente
 -- da utilizada no MySQL.
--- Em vez de AUTO_INCREMENT, deve-se utilizar INTEGER
+
+-- Em vez de AUTO_INCREMENT, deve-se utilizar `INTEGER PRIMARY KEY`
 -- para números que aumentam automaticamente.
 
-
+-- ===============
 -- Criando tabelas
+-- ===============
 
-CREATE TABLE produtos (
+CREATE TABLE IF NOT EXISTS produtos (
     id_produto INTEGER PRIMARY KEY,
     nome VARCHAR(255),
     categoria VARCHAR(255),
@@ -14,14 +16,14 @@ CREATE TABLE produtos (
     estoque INT
 );
 
-CREATE TABLE clientes (
+CREATE TABLE IF NOT EXISTS clientes (
     id_cliente INTEGER PRIMARY KEY,
     nome VARCHAR(255),
     email VARCHAR(255),
     telefone VARCHAR(255)
 );
 
-CREATE TABLE vendas (
+CREATE TABLE IF NOT EXISTS vendas (
     id_venda INTEGER PRIMARY KEY,
     id_produto INT,
     id_cliente INT,
@@ -73,36 +75,46 @@ DELETE FROM clientes WHERE id_cliente = 5;
 
 SELECT (id_produto, nome, preco, estoque)
 FROM produtos
-WHERE categoria = 'smartphone';
+WHERE categoria = 'smartphone'
+LIMIT 200;
 
 SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
-FROM vendas WHERE data_venda = '2024-09-01';
+FROM vendas WHERE data_venda = '2024-09-01'
+LIMIT 200;
 
 SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
-FROM vendas GROUP BY quantidade;
+FROM vendas GROUP BY quantidade
+LIMIT 200;
 
 SELECT SUM(v.quantidade * p.preco) AS receita_total
 FROM vendas AS v
-INNER JOIN produtos AS p ON v.id_produto = p.id_produto;
+INNER JOIN produtos AS p ON v.id_produto = p.id_produto
+LIMIT 200;
 
 -- Ordenando dados
 
 SELECT (id_produto, nome, preco, estoque)
-FROM produtos ORDER BY nome ASC;
+FROM produtos ORDER BY nome ASC
+LIMIT 200;
 
 SELECT (id_cliente, nome, email, telefone)
-FROM clientes ORDER BY nome DESC;
+FROM clientes ORDER BY nome DESC
+LIMIT 200;
 
 SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
-FROM vendas WHERE data_venda = '2024-09-01';
+FROM vendas WHERE data_venda = '2024-09-01'
+LIMIT 200;
 
 SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
-FROM vendas GROUP BY quantidade;
+FROM vendas GROUP BY quantidade
+LIMIT 200;
 
 -- Ordenando dados
 
 SELECT (id_produto, nome, preco, estoque)
-FROM produtos ORDER BY nome ASC;
+FROM produtos ORDER BY nome ASC
+LIMIT 200;
 
 SELECT (id_cliente, nome, email, telefone)
-FROM clientes ORDER BY nome DESC;
+FROM clientes ORDER BY nome DESC
+LIMIT 200;
