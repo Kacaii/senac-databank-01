@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS autor_editora (
 
 CREATE TABLE IF NOT EXISTS emprestimos (
     id INTEGER PRIMARY KEY,
-    id_aluno INTEGER NOT NULL,
+    id_aluno INT NOT NULL,
     id_livro INT NOT NULL,
     data_emprestimo DATE NOT NULL,
     data_devolucao DATE,
