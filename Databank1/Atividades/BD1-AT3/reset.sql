@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS alunos;
+DROP TABLE IF EXISTS autor_editora;
+DROP TABLE IF EXISTS categorias;
+DROP TABLE IF EXISTS emprestimos;
+DROP TABLE IF EXISTS editoras;
+DROP TABLE IF EXISTS livro_autor;
+DROP TABLE IF EXISTS autores;
+DROP TABLE IF EXISTS livros;
