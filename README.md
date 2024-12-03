@@ -6,7 +6,8 @@
   - [Overview](#overview)
   - [Technologies Used](#technologies-used)
   - [Project Structure](#project-structure)
-  <!--toc:end-->
+
+<!--toc:end-->
 
 Welcome to the **SENAC DataBank Assignments** repository! This project contains my
 database exercises for the **Systems Analysis and Development** program at
@@ -28,10 +29,9 @@ In this repository, you will find:
 ## Project Structure
 
 ```plaintext
-Senac-Databank/
+senac-databank-01/
 │
-├── Databank1/               # Main directory for Databank1
-│   └── Atividades/          # Databank1 Assignments
+├── Atividades/
 │
-└── README.md                # This README file
+└── README.md
 ```
