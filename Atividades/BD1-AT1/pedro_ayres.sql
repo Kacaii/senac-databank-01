@@ -63,13 +63,17 @@ INSERT INTO vendas (id_produto, id_cliente, quantidade, data_venda) VALUES
 
 -- Atualizando dados
 
-UPDATE produtos SET preco = 5600 WHERE id_produto = 1;
-UPDATE clientes SET telefone = 123098567 WHERE id_cliente = 1;
+UPDATE produtos SET preco = 5600
+WHERE id_produto = 1;
+UPDATE clientes SET telefone = 123098567
+WHERE id_cliente = 1;
 
 -- Removendo dados
 
-DELETE FROM produtos WHERE id_produto = 5;
-DELETE FROM clientes WHERE id_cliente = 5;
+DELETE FROM produtos
+WHERE id_produto = 5;
+DELETE FROM clientes
+WHERE id_cliente = 5;
 
 -- Consultando dados
 
@@ -79,11 +83,13 @@ WHERE categoria = 'smartphone'
 LIMIT 200;
 
 SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
-FROM vendas WHERE data_venda = '2024-09-01'
+FROM vendas
+WHERE data_venda = '2024-09-01'
 LIMIT 200;
 
 SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
-FROM vendas GROUP BY quantidade
+FROM vendas
+GROUP BY quantidade
 LIMIT 200;
 
 SELECT SUM(v.quantidade * p.preco) AS receita_total
@@ -94,27 +100,33 @@ LIMIT 200;
 -- Ordenando dados
 
 SELECT (id_produto, nome, preco, estoque)
-FROM produtos ORDER BY nome ASC
+FROM produtos
+ORDER BY nome ASC
 LIMIT 200;
 
 SELECT (id_cliente, nome, email, telefone)
-FROM clientes ORDER BY nome DESC
+FROM clientes
+ORDER BY nome DESC
 LIMIT 200;
 
 SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
-FROM vendas WHERE data_venda = '2024-09-01'
+FROM vendas
+WHERE data_venda = '2024-09-01'
 LIMIT 200;
 
 SELECT (id_venda, id_produto, id_cliente, quantidade, data_venda)
-FROM vendas GROUP BY quantidade
+FROM vendas
+GROUP BY quantidade
 LIMIT 200;
 
 -- Ordenando dados
 
 SELECT (id_produto, nome, preco, estoque)
-FROM produtos ORDER BY nome ASC
+FROM produtos
+ORDER BY nome ASC
 LIMIT 200;
 
 SELECT (id_cliente, nome, email, telefone)
-FROM clientes ORDER BY nome DESC
+FROM clientes
+ORDER BY nome DESC
 LIMIT 200;
